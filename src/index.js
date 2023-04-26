@@ -6,7 +6,8 @@ import AppProfile from './basic/AppProfile';
 import AppCounter from './basic/AppCounter';
 import AppProducts from './basic/AppProducts';
 import AppXY from './AppXY';
-import AppMentor from './basic/AppMentor';
+import AppMentor from './AppMentor';
+import AppMentors from './AppMentors';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,7 +16,8 @@ root.render(
     {/* <AppCounter /> */}
     {/* <AppProducts /> */}
     {/* <AppXY /> */}
-		<AppMentor />
+		{/* <AppMentor /> */}
+		<AppMentors />
   </React.StrictMode>
 );
 
