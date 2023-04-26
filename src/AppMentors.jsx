@@ -47,11 +47,10 @@ export default function AppMentors(props) {
         {person.name}의 멘토는 :
       </p>
 			<ul>
-				{person.mentors.map((mentor, index) => (
-					<li key={index}>
-						{mentor.name} ({mentor.title})
-					</li>
-				))}
+				{person.mentors.map((mentor, index) => {
+					const text = `${mentor.name} (${mentor.title})`;
+					return <li key={index} children={text} />
+				})}
 			</ul>
       <button onClick={handleUpdate}>멘토의  이름 바꾸기</button>
 			<button onClick={handleDelete}>멘토 삭제하기</button>
