@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import './AppXY.css';
 
 export default function AppXY() {
-	const [pointerXY, setPointerXY] = useState([0, 0]);
+	const [position, setPosition] = useState({x: 0, y: 0});
 
 	return (
 		// <div className='container' onMouseMove={handlePointer}>
 		<div className='container' onPointerMove={(e) => {
-			setPointerXY([e.clientX, e.clientY]);
+			setPosition({x: e.clientX, y: e.clientY});
 		}}>
-			<div className="pointer" style={{transform: `translate(${pointerXY[0]}px, ${pointerXY[1]}px)`}} />
+			<div className="pointer" style={{transform: `translate(${position.x}px, ${position.y}px)`}} />
 		</div>
 	)
 }
