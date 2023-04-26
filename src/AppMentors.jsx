@@ -31,22 +31,21 @@ export default function AppMentors(props) {
 				))}
 			</ul>
       <button
-        onClick={() => {
-          const prev = prompt(`누구의 이름을 바꾸고 싶은가요?`);
+				onClick={() => {
+					const prev = prompt(`누구의 이름을 바꾸고 싶은가요?`);
           const current = prompt(`이름을 무엇으로 바꾸고 싶은가요?`);
-					setPerson(person => {
-						const curr = {...person};
-						const newMentors = curr.mentors.map((mentor) => {
+
+					setPerson(person => ({
+						...person,
+						mentors: person.mentors.map(mentor => {
 							if(mentor.name === prev) {
-								mentor.name = current;
+								return {...mentor, name : current}
 							}
 							return mentor;
 						})
-
-						return {...curr, mentors: [...newMentors]}
-					})
-        }}
-				>
+					}))
+				}}
+			>
         멘토의  이름 바꾸기
       </button> 
     </div>
