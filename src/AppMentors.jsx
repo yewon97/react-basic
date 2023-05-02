@@ -54,3 +54,23 @@ const initialPerson = {
     },
   ],
 };
+
+/* 리액트 상태관리하는 방법
+	useState : 상태 접근할 수 있는 변수, 그걸 업데이트 할 수 있는 것을 받아옴
+	setState로 상태를 업데이트 함
+	↳ 상태는 읽기 전용, 변경하려면 새로운 오브젝트, 배열을 만들어서 set해줌
+
+	객체가 중첩되어있어 복잡한 형태라면 
+	useReducer를 이용해서 
+	객체 어떻게 업데이트할껀지, 어떤 액션이 있는지 별도의 함수로 정의해둠
+
+	함수로 정의해두면, 컴포넌트에서 로직이 분리가 되기때문에 유지관리하기가 좋고, 재사용성이 높다, 테스트하기 편하다.
+
+	reducer를 사용한다고 해도
+	중첩된 객체가 많으면 많을 수록, spread operator사용하고 등 반복해서 써야함
+
+	-> Immer 라이브러리 나옴
+	참고1 > https://github.com/immerjs/immer
+	참고2 > https://github.com/immerjs/use-immer
+	참고3 > https://immerjs.github.io/immer/
+*/
