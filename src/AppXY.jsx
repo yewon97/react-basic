@@ -11,6 +11,7 @@ export default function AppXY() {
 
 			// 수평으로만 이동이 가능하다면?
 			// setPosition(prev => ({x: e.clientX, y: prev.y}));
+			// spread operator 사용해서
 			setPosition(prev => ({ ...prev, x: e.clientX }));
 		}}>
 			<div className="pointer" style={{transform: `translate(${position.x}px, ${position.y}px)`}} />
