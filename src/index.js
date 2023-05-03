@@ -20,7 +20,7 @@ root.render(
   <React.StrictMode>
     {/* <AppProfile /> */}
     {/* <AppCounter /> */}
-    {/* <AppProducts /> */}
+    <AppProducts />
     {/* <AppXY /> */}
     {/* <AppMentor /> */}
     {/* <AppMentors /> */}
@@ -29,7 +29,7 @@ root.render(
     {/* <AppWrap /> */}
     {/* <AppCard /> */}
     {/* <AppTheme /> */}
-    <AppMentorsButton />
+    {/* <AppMentorsButton /> */}
   </React.StrictMode>
 );
 
