@@ -30,3 +30,6 @@ export default class AppClass extends React.Component {
     );
   }
 }
+
+// class는 렌더 함수만 호출됨
+// useCallback, useMemo, memo 안써도됨
