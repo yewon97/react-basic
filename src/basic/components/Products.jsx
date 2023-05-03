@@ -5,10 +5,12 @@ export default function Products() {
   const [checked, setChecked] = useState(false);
   const handleChange = () => setChecked((prev) => !prev);
 
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(); // undefined 할당되어있음
 
   useEffect(() => {
+    setLoading(true);
+    setError(undefined);
     fetch(`data/${checked ? 'sale_' : ''}products.json`)
       .then((res) => res.json())
       .then((data) => {
@@ -16,37 +18,33 @@ export default function Products() {
         setProducts(data);
         setLoading(false);
       })
-      .catch(() => {
-        setLoading(false);
-        setError(true);
-      });
+      .catch((e) => {
+        setError('에러가 발생했음!');
+      })
+      .finally(() => setLoading(false));
     return () => {
       console.log('🧹 깨끗하게 청소하는 일들을 합니다.');
     };
   }, [checked]);
 
+  if (loading) return <p>Loading...</p>;
+
+  if (error) return <p>{error}</p>;
+
   return (
     <>
-      {loading ? (
-        <p>Loading~~🐣</p>
-      ) : !error ? (
-        <>
-          <input id="checkbox" type="checkbox" value={checked} onChange={handleChange} />
-          <label htmlFor="checkbox">Show Only 🔥 Sale</label>
-          <ul>
-            {products.map((product) => (
-              <li key={product.id}>
-                <article>
-                  <h3>{product.name}</h3>
-                  <p>{product.price}</p>
-                </article>
-              </li>
-            ))}
-          </ul>
-        </>
-      ) : (
-        <p>Error!!!!💩</p>
-      )}
+      <input id="checkbox" type="checkbox" value={checked} onChange={handleChange} />
+      <label htmlFor="checkbox">Show Only 🔥 Sale</label>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <article>
+              <h3>{product.name}</h3>
+              <p>{product.price}</p>
+            </article>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
